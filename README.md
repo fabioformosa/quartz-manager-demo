@@ -20,6 +20,12 @@ If you have to import the [quartz-manager](https://github.com/fabioformosa/quart
   <artifactId>quartz-manager-api</artifactId>
   <version>2.2.2-SNAPSHOT</version>
 </dependency>
+
+<dependency>
+  <groupId>it.fabioformosa.quartz-manager</groupId>
+  <artifactId>quartz-manager-ui-webjar</artifactId>
+  <version>2.2.2-SNAPSHOT</version>
+</dependency>
 ```
 
 * add a `quartz.properties` file in the classpath (`src/main/resources`):
@@ -68,13 +74,12 @@ job.repeatCount=19
 ```
 
 * frontend
-.: work in progress :.
+Open it: [http://localhost:8080/quartz-manager-ui/index.html](http://localhost:8080/quartz-manager-ui/index.html)
 
 ## Roadmap
 In the roadmap:
 
 * we're going to avoid unuseful properties to be set
-* we're going to build&package the frontend of [quartz-manager](https://github.com/fabioformosa/quartz-manager) within the library
 * we're going to enable a security for `quartz-manager-api` 
 
 ## Contributes
