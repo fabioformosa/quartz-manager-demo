@@ -36,20 +36,6 @@ org.quartz.scheduler.instanceId=AUTO
 org.quartz.threadPool.threadCount=1
 ```
 
-* add a controller `UserController`
-  
-```
-@RestController
-@RequestMapping(value = "/quartz-manager/api", produces = MediaType.APPLICATION_JSON_VALUE)
-public class UserController {
-
-    @GetMapping("/whoami")
-    public @ResponseBody String user() {
-        return "\"NO_AUTH\"";
-    }
-
-}
-```
 
 * Add the job that you want to schedule
  
@@ -64,23 +50,71 @@ public class UserController {
 }
 ```
 
-* Enable quartz-manager
+* Enable quartz-manager adding into the application.yml:
 
 ```
-quartz.enabled=true
-quartz-manager.jobClass=<QUALIFIED NAME OF THE JOB CLASS>
-job.frequency=4000
-job.repeatCount=19
+quartz:
+  enabled: true
+
+job: 
+  frequency: 4000
+  repeatCount: 19
+
+quartz-manager:
+  jobClass: <QUALIFIED NAME OF THE JOB CLASS>
 ```
+
+
 
 * frontend
 Open it: [http://localhost:8080/quartz-manager-ui/index.html](http://localhost:8080/quartz-manager-ui/index.html)
 
+* security
+If you want enable a security layer, add to the `pom.xml`:
+
+```
+<dependency>
+  <groupId>it.fabioformosa.quartz-manager</groupId>
+  <artifactId>quartz-manager-security</artifactId>
+  <version>2.2.2-SNAPSHOT</version>
+</dependency>
+```
+
+and in application.yml:
+
+```
+quartz-manager:
+  security:
+    login-model:
+      form-login-enabled: true
+      userpwd-filter-enabled : false
+    jwt:
+      enabled: true
+      secret: "PLEASE_TYPE_HERE_A_SECRET"
+      expiration-in-sec: 28800  # 8 hours
+      header-strategy:
+        enabled: false
+        header: "Authorization"
+      cookie-strategy:
+        enabled: true
+        cookie: AUTH-TOKEN
+  accounts:
+    in-memory:
+      enabled: true
+      users:
+        - name: admin
+          password: admin
+          roles:
+            - ADMIN      
+
+```
+
 ## Roadmap
 In the roadmap:
 
-* we're going to avoid unuseful properties to be set
-* we're going to enable a security for `quartz-manager-api` 
+* we're going to publish the quartz-manager into the maven central repo. 
+
+NB: At the moment, you have to pull the quartz-manager repo and install it locally with `mvn install`
 
 ## Contributes
 
