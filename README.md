@@ -17,14 +17,14 @@ If you have to import the [quartz-manager](https://github.com/fabioformosa/quart
 ```
 <dependency>
   <groupId>it.fabioformosa.quartz-manager</groupId>
-  <artifactId>quartz-manager-api</artifactId>
-  <version>2.2.2-SNAPSHOT</version>
+  <artifactId>quartz-manager-starter-api</artifactId>
+  <version>3.0.1</version>
 </dependency>
 
 <dependency>
   <groupId>it.fabioformosa.quartz-manager</groupId>
-  <artifactId>quartz-manager-ui-webjar</artifactId>
-  <version>2.2.2-SNAPSHOT</version>
+  <artifactId>quartz-manager-starter-ui</artifactId>
+  <version>3.0.1</version>
 </dependency>
 ```
 
@@ -75,8 +75,8 @@ If you want enable a security layer, add to the `pom.xml`:
 ```
 <dependency>
   <groupId>it.fabioformosa.quartz-manager</groupId>
-  <artifactId>quartz-manager-security</artifactId>
-  <version>2.2.2-SNAPSHOT</version>
+  <artifactId>quartz-manager-starter-security</artifactId>
+  <version>3.0.1</version>
 </dependency>
 ```
 
