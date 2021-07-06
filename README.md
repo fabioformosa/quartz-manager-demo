@@ -67,7 +67,7 @@ quartz-manager:
 
 
 * frontend
-Open it: [http://localhost:8080/quartz-manager-ui/index.html](http://localhost:8080/quartz-manager-ui/index.html)
+Open it: [http://localhost:8080/demo/quartz-manager-ui/index.html](http://localhost:8080/demo/quartz-manager-ui/index.html)
 
 * security
 If you want enable a security layer, add to the `pom.xml`:
